@@ -1,0 +1,41 @@
+{
+    "Load_Module": {
+        ".Return_command":"Module",
+        "Testen": {
+            "Check": "true",
+            "Folder": ".\\src\\tests\\",
+            ".Return_command":"Test"
+        },
+        "Release": {
+            "Check": "true",
+            "Folder": ".\\src\\Modules\\",
+            ".Return_command":"Release"
+        }
+    },
+    "DataBase": {
+        "Default": "Fase",
+        ".Return_command":"Debug",
+        "Output": {
+            "Find": {
+                "Folder": "Software",
+                "Item": "Select.txt,Color.txt",
+                ".Return_command":"Main"
+            },
+            "Install": {
+                "Folder": "Install",
+                "Item": "Software.txt",
+                ".Return_command":"Install"
+            },
+            "Debug": {
+                "Folder": "Debug",
+                "Item": "Debug.txt",
+                ".Return_command":"Debug"
+            }
+        }
+    },
+    "Software": {
+        "Folder": "Software",
+        "Item": "main.json",
+        ".Return_command":"Software_Path"
+    }
+}

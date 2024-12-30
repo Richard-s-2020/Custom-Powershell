@@ -1,0 +1,18 @@
+,
+    "Chrome": {
+        "Check": "Winget,Installer",
+        "Folder": "\\Software\\ChromeSetup.exe",
+        "Winget": {
+            "Select": "Ja,Nee",
+            "Color": "Green,Red",
+            "Install": {
+                "Check_Register": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\winget.exe",
+                "Id": "Google.Chrome"
+            }
+        },
+        "Installer": {
+            "Select": "Ja,Nee",
+            "Color": "Green,Red",
+            "Check_Register": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\winget.exe"
+        }
+    }

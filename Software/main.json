@@ -1,0 +1,10 @@
+{
+    "Winget": {
+        "Select": "Ja,Nee",
+        "Color": "Green,Red",
+        "Check": {
+            "Register": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\winget.exe",
+            "Software": "winget.exe"
+        }
+    }
+}
