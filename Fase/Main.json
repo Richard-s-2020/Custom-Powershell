@@ -13,8 +13,8 @@
         }
     },
     "DataBase": {
-        "Default": "Fase",
-        ".Return_command":"Debug",
+        "Default": "fase",
+        ".Return_command":"Fase",
         "Output": {
             "Find": {
                 "Folder": "Software",

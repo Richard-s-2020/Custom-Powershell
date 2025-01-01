@@ -52,14 +52,15 @@ if (Test-Path $jsonFilePath) {
             }
         }
         elseif ($_.Name -match "DataBase") {
+            $air = [PSCustomObject]@{}
             $temp = $_.Value
             $Main_Return = ""
             $temp.PSObject.Properties | ForEach-Object {
                 if ($_.name -eq "Default") {
                     $Path = ".\" + $_.Value + "\"
                 }elseif($_.name -eq ".Return_command"){
-                    $Main_Return = $_Value
-                    Pause
+                    $Main_Return = $_.Value
+                    $Return | Add-Member -MemberType NoteProperty -Name $Main_Return -Value $air
                 }
                 else {
                     $_.Value.PSObject.Properties | ForEach-Object {
@@ -75,9 +76,11 @@ if (Test-Path $jsonFilePath) {
                                     if ($_.Value -match ",") {
                                         $_.Value -split "," | ForEach-Object {
                                             $Temp = $Full_Path + $_
+                                            $Name = $_ -replace ".txt",""
                                             if (!(Test-Path $Temp)) {
                                                 New-Item $Temp
                                             }
+                                            $Return.$Main_Return.$Temp_Return | Add-Member -MemberType NoteProperty -Name $Name -Value $Temp
                                         }
                                     }
                                     else {
@@ -85,11 +88,15 @@ if (Test-Path $jsonFilePath) {
                                         if (!(Test-Path $Temp)) {
                                             New-Item $Temp
                                         }
+                                        $Return.$Main_Return | Add-Member -MemberType NoteProperty -Name $Temp_Return -Value $Temp             
                                     }
                                     
                                 }else {
-                                    $_
-                                    Pause
+                                    $Temp_Return = $_.value
+                                    if ($Temp_Return -eq "Main") {
+                                        $air = [PSCustomObject]@{}
+                                        $Return.$Main_Return | Add-Member -MemberType NoteProperty -Name $Temp_Return -Value $air
+                                    }
                                 }
                             }
                         }
@@ -119,7 +126,9 @@ if (Test-Path $jsonFilePath) {
             }
         }
     }
+    return $Return
 }
 else {
     Write-Error "Teh Database is air"
 }
+return $Return
