@@ -1,10 +1,15 @@
 {
     "Winget": {
-        "Select": "Ja,Nee",
+        "Name": "Winget",
+        "Text": "Ja,Nee",
         "Color": "Green,Red",
-        "Check": {
-            "Register": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\winget.exe",
-            "Software": "winget.exe"
+        "install": {
+            "Check": {
+                "Software":"powershell",
+                "Module":"Test-Path",
+                "Location": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths",
+                "Find": "winget.exe"
+            }
         }
     }
 }
