@@ -1,12 +1,23 @@
+/* Color HEX,RGB,Name */
+
 {
     "Winget": {
         "Name": "Winget",
-        "Text": "Ja,Nee",
-        "Color": "Green,Red",
+        "Categories": "Winget", 
+        "Detail": {
+            "main": {
+                "Title": "Install Winget",
+                "Color_Name": ["Green","Red"]
+            },
+            "middle": {
+                "Title": "Install Winget",
+                "Color_Hex": ["Green","Red"]
+            }
+        },
         "install": {
             "Check": {
-                "Software":"powershell",
-                "Module":"Test-Path",
+                "Software": "powershell",
+                "Module": "Test-Path",
                 "Location": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths",
                 "Find": "winget.exe"
             }
