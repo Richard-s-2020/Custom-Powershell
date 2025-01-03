@@ -1,5 +1,6 @@
 param (
-    [string]$jsonFilePath = ".\Software\main.json"
+    [string]$jsonFilePath = ".\Software\main.json",
+    [string]$softwarePath = ".\Fase\Software"
 )
 
 if (!(($jsonFilePath -eq "") -or ($null -eq $jsonFilePath))) {
@@ -17,7 +18,12 @@ if (!(($jsonFilePath -eq "") -or ($null -eq $jsonFilePath))) {
                 elseif ($_.Name -eq "text") {
                     $_.Value.PSObject.Properties | ForEach-Object {
                         $Temp_text = $_.name       
-                        $Temp_text
+                        $_.value.PSObject.Properties | ForEach-Object {
+                            if ($_.Name -eq "Title"){
+
+                            }
+                        }
+                        Pause
                     }
                 }
             }
