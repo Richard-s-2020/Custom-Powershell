@@ -21,7 +21,7 @@
             "Check": {
                 "Software": "powershell",
                 "Module": "Test-Path",
-                "Location": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths",
+                "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths",
                 "Find": "winget.exe"
             },
             "False": {},
