@@ -39,7 +39,10 @@ if (!(($jsonFilePath -eq "") -or ($null -eq $jsonFilePath))) {
                 }
                 else {
                     $_.Value.PSObject.Properties | Sort-Object | ForEach-Object {
-                        $_.value
+                        $_.value.PSObject.Properties | ForEach-Object {
+                            $_
+                            #Invoke-Expression
+                        }
                     }
                 }
             }
