@@ -40,7 +40,23 @@ if (!(($jsonFilePath -eq "") -or ($null -eq $jsonFilePath))) {
                 else {
                     $_.Value.PSObject.Properties | Sort-Object | ForEach-Object {
                         $_.value.PSObject.Properties | ForEach-Object {
-                            $_
+                            if ($_.name -eq "Module") {
+                                switch ($_.Value) {
+                                    "path" { $Module = "Test-Path" }
+                                }
+                            }
+                            elseif ($_.name -eq "Path") {
+                                if ($_.value -match "HKEY") {
+                                    switch -Wildcard ($_.Value) {
+                                        "*CLASSES_ROOT*" { $_ -replace "HKEY_CLASSES_ROOT","HKCR:"}
+                                        "*CURRENT_USER*" { $_ -replace "HKEY_CURRENT_USER","HKCU:"}
+                                        "*LOCAL_MACHINE*" { $_ -replace "HKEY_LOCAL_MACHINE","HKLM:"}
+                                        "*HKEY_USERS*" { $_ -replace "HKEY_HKEY_USERSE","HKU:"}
+                                        "*CURRENT_CONFIG*" { $_ -replace "HKEY_CURRENT_CONFIG","HKCC:"}
+                                    }
+                                } 
+                            }
+                            else {}
                             #Invoke-Expression
                         }
                     }
